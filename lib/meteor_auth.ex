@@ -10,7 +10,7 @@ defmodule MeteorAuth do
       # Start the endpoint when the application starts
       supervisor(MeteorAuth.Endpoint, []),
       # Here you could define other workers and supervisors as children
-      # worker(MeteorAuth.Worker, [arg1, arg2, arg3]),
+      worker(MongoPool, [[database: "meteor", port: 3001]])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
