@@ -54,9 +54,29 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("ddp", {})
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
+
+channel.push("foo")
+    .receive("ok", resp => { console.log("foo ok", resp) })
+    .receive("error", resp => { console.log("foo error", resp) })
+
+channel.push("login", {user: {email: "bad@email.com"}, password: "wrong"})
+    .receive("ok", resp => { console.log("login ok", resp) })
+    .receive("error", resp => { console.log("login error", resp) })
+
+channel.push("foo")
+    .receive("ok", resp => { console.log("foo ok", resp) })
+    .receive("error", resp => { console.log("foo error", resp) })
+
+channel.push("login", {user: {email: "user@example.com"}, password: "password"})
+    .receive("ok", resp => { console.log("login ok", resp) })
+    .receive("error", resp => { console.log("login error", resp) })
+
+channel.push("foo")
+    .receive("ok", resp => { console.log("foo ok", resp) })
+    .receive("error", resp => { console.log("foo error", resp) })
 
 export default socket

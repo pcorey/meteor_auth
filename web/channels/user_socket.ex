@@ -2,7 +2,7 @@ defmodule MeteorAuth.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", MeteorAuth.RoomChannel
+  channel "ddp", MeteorAuth.DDPChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

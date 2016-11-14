@@ -17,7 +17,7 @@ defmodule MeteorAuth.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {MeteorAuth, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :mongodb, :poolboy]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :mongodb, :poolboy, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -34,6 +34,7 @@ defmodule MeteorAuth.Mixfile do
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
      {:mongodb, ">= 0.0.0"},
-     {:poolboy, ">= 0.0.0"}]
+     {:poolboy, ">= 0.0.0"},
+     {:comeonin, "~> 2.5"}]
   end
 end
